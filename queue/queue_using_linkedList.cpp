@@ -23,13 +23,13 @@ class Queue
     {
         node *newnode = new node;
         newnode->data = value;
-        newndoe->next = NULL;
+        newnode->next = NULL;
         return newnode;
     }
     void enqueue(int value)
     {
         sz++;
-        node * newnode= CreateNOde(value);
+        node * newnode= CreateNode(value);
         if (head==NULL)
         {
             head=newnode;
@@ -44,6 +44,7 @@ class Queue
         if(sz==0)
         {
             cout<<"Queue is empty\n";
+          
             return;
         }
         if (sz==1)
@@ -51,18 +52,44 @@ class Queue
             delete head;
             head =NULL;
             tail= NULL;
+              sz--;
             return;
 
         }
         node* a=head;
         head =head-> next;
+          sz--;
         delete a;
-        
+
+    }
+    int front ()
+    {
+        if (sz==0)
+        {
+            cout<<" Queue is empty"<<endl;
+            return 404;
+        }
+        return head->data;
+    }
+    int size()
+    {
+        return sz;
     }
 };
 int main()
 
 {
-    cout << "test run";
+   Queue q;
+   q.enqueue(5);
+   q.enqueue(10);
+   q.enqueue(15);
+   cout<<"Q size : "<<q.size()<<endl;
+   cout<<q.front()<<endl;
+   q.dequeue();
+   cout<<q.front()<<endl;
+   q.dequeue();
+   cout<<q.front()<<endl;
+   q.dequeue();
+    cout<<"Q size : "<<q.size()<<endl;
     return 0;
 }
