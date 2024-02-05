@@ -13,6 +13,7 @@ public:
     }
     void enqueue(int value)
     {
+        
         if (r + 1 >= MAX_SIZE)
         {
             cout << "Queue is full\n";
