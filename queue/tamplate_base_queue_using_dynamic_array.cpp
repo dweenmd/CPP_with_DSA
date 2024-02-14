@@ -1,16 +1,18 @@
 #include <bits/stdc++.h>
 using namespace std;
 const int MAX_SIZE = 500;
+template<class Temp>
+
 class Queue
 {
 public:
-    int *a;
+    Temp *a;
     int array_cap;
     int l, r; // l = queue er start ,r =rare ba queue er end
     int sz;
     Queue()
     {
-        a = new int[1];
+        a = new Temp[1];
         array_cap = 1;
         l = 0;
         r = -1;
@@ -20,7 +22,7 @@ public:
     {
         if (l > r)
         {
-            int *tmp = new int[array_cap];
+            Temp *tmp = new Temp[array_cap];
             int idx = 0;
             for (int i = l; i < array_cap; i++)
             {
@@ -41,7 +43,7 @@ public:
     {
         remove_size();
         //size increase
-        int *tmp =new int (array_cap*2);
+        Temp *tmp =new Temp (array_cap*2);
         for(int i=0;i<array_cap;i++)
         {
             tmp[i]=a[i];
@@ -52,7 +54,7 @@ public:
         
         }
 
-    void enqueue(int value)
+    void enqueue(Temp value)
     {
         if (sz == array_cap)
         {
@@ -96,7 +98,7 @@ public:
 };
 int main()
 {
-    Queue q;
+    Queue<int> q;
     q.enqueue(5);
     q.enqueue(6);
     q.enqueue(7);
