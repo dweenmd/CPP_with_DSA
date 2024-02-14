@@ -1,4 +1,4 @@
-//https://phitron.io/ph452/video/ph452-26-5-reverse-a-deque26-5-reverse-a-deque
+//https://-----/ph452/video/ph452-26-5-reverse-a-deque26-5-reverse-a-deque
 #include <bits/stdc++.h>
 using namespace std;
 class node
