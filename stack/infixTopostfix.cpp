@@ -20,7 +20,7 @@ int main() {
     cin>>s;
     stack<char>st;
     string ans="";
-    for(int i=0;i<s.size();i++)
+    for(int i = 0; i < s.size(); i++)
     {
         char now=s[i];
         if(now>='a'&& now<='z')
