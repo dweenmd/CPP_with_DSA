@@ -26,6 +26,7 @@ int main() {
         if(now>='a'&& now<='z')
         {
             ans+=now;
+            
         }
         else{
             while(st.size()&&st.top()>=prec(now))
