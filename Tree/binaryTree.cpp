@@ -71,13 +71,40 @@ public:
             cout << "Node " << i << ": Parent = " << p << ", Left child= " << l << " , Right child = " << r << endl;
         }
     }
+    void BFS()
+    {
+        queue<node *> q;
+        q.push(root);
+        while (!q.empty())
+        {
+            node *a = q.front();
+            q.pop();
+            int p = -1, l = -1, r = -1;
+            if (a->parent != NULL)
+            {
+                p = a->parent->id;
+            }
+            if (a->Left != NULL)
+            {
+                l = a->Left->id;
+                q.push(a->Left);
+            }
+            if (a->Right != NULL)
+            {
+                r = a->Right->id;
+                q.push(a->Right);
+            }
+            cout << "Node id= " << a->id << ", Parent= " << p << ", Left Child= " << l << ", Right Child= " << r << "\n";
+        }
+    }
 };
 
 int main()
 {
     BinaryTree bt;
     bt.build_binary_tree();
-    bt.print_tree_info();
+    //  bt.print_tree_info();
+    bt.BFS();
 
     return 0;
 }
