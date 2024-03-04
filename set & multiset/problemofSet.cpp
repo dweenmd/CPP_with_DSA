@@ -1,4 +1,13 @@
 /**!
+* Write a C++ program to remove all duplicates from an array using a set.
+Input
+
+8
+1 2 2 6 5 5 5 6
+Output
+1 2 5 6
+
+
 * author: dween_md
 * created: 2024-03-04    02:36:12
 !**/
