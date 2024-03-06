@@ -17,36 +17,28 @@ public:
     }
     void enqueue(int value)
     {
-        if (size == MAX_SIZE)
+        if (rear_idx+1>= MAX_SIZE)
         {
             cout << "Queue is full" << endl;
             return;
         }
         rear_idx++;
-        if (rear_idx == MAX_SIZE)
-        {
-            rear_idx = 0;
-        }
         arr[rear_idx] = value;
         size++;
     }
     void dequeue()
     {
-        if (size == 0)
+        if (front_idx>rear_idx)
         {
             cout << "Queue is empty" << endl;
             return;
         }
         front_idx++;
-        if (front_idx == MAX_SIZE)
-        {
-            front_idx = 0;
-        }
         size--;
     }
     int front()
     {
-        if (size == 0)
+        if (front_idx>rear_idx)
         {
             cout << "Queue is empty" << endl;
             return -1;

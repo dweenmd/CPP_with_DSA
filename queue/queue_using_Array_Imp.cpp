@@ -1,51 +1,56 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 const int MAX_SIZE = 500;
+
 class Queue
 {
 public:
-    int a[MAX_SIZE];
-    int l, r; // l = queue er start ,r =rare ba queue er end
+    int arr[MAX_SIZE];
+    int front_idx, rear_idx;
+    int size;
     Queue()
     {
-        l = 0;
-        r = -1;
+        front_idx = 0;
+        rear_idx = -1;
+        size = 0;
     }
     void enqueue(int value)
     {
-        
-        if (r + 1 >= MAX_SIZE)
+        if (rear_idx + 1 >= MAX_SIZE)
         {
-            cout << "Queue is full\n";
+            cout << "Queue is full" << endl;
             return;
         }
-        r++;
-        a[r] = value;
+        rear_idx++;
+        arr[rear_idx] = value;
+        size++;
     }
     void dequeue()
     {
-        if (l > r)
+        if (front_idx > rear_idx)
         {
-            cout << "Queue is empty\n";
+            cout << "Queue is empty" << endl;
             return;
         }
-        l++;
-       
+        front_idx++;
+        size--;
     }
     int front()
     {
-        if (l > r)
+        if (front_idx > rear_idx)
         {
-            cout << "Queue is empty\n";
+            cout << "Queue is empty" << endl;
             return -1;
         }
-        return a[l];
+        return arr[front_idx];
     }
-    int size()
+    int Size()
     {
-        return r - l + 1;
+        return size;
     }
 };
+
 int main()
 {
     Queue q;
@@ -53,13 +58,14 @@ int main()
     q.enqueue(6);
     q.enqueue(7);
 
-    cout << "Q size: " << q.size() << endl;
+    cout << "Q size: " << q.Size() << endl;
     cout << q.front() << endl;
     q.dequeue();
     cout << q.front() << endl;
     q.dequeue();
     cout << q.front() << endl;
     q.dequeue();
-    cout << "Q size: " << q.size() << endl;
+    cout << "Q size: " << q.Size() << endl;
+
     return 0;
 }
