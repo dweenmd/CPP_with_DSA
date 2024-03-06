@@ -1,62 +1,64 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 const int MAX_SIZE = 500;
+
 class Queue
 {
 public:
-    int a[MAX_SIZE];
-    int l, r; // l = queue er start ,r =rare ba queue er end
-    int sz;
+    int arr[MAX_SIZE];
+    int front_idx, rear_idx;
+    int size;
     Queue()
     {
-        l = 0;
-        r = -1;
-        sz=0;
+        front_idx = 0;
+        rear_idx = -1;
+        size = 0;
     }
     void enqueue(int value)
     {
-        if (sz== MAX_SIZE)
+        if (size == MAX_SIZE)
         {
-            cout << "Queue is full\n";
+            cout << "Queue is full" << endl;
             return;
         }
-        r++;
-        if (r==MAX_SIZE)
+        rear_idx++;
+        if (rear_idx == MAX_SIZE)
         {
-            r=0;
-
+            rear_idx = 0;
         }
-        a[r] = value;
-        sz++;
+        arr[rear_idx] = value;
+        size++;
     }
     void dequeue()
     {
-        if (sz==0)
+        if (size == 0)
         {
-            cout << "Queue is empty\n";
+            cout << "Queue is empty" << endl;
             return;
         }
-        l++;
-        if(l==MAX_SIZE)
+        front_idx++;
+        if (front_idx == MAX_SIZE)
         {
-            l=0;  
+            front_idx = 0;
         }
-       
+        size--;
     }
     int front()
     {
-        if (sz==0)
+        if (size == 0)
         {
-            cout << "Queue is empty\n";
+            cout << "Queue is empty" << endl;
             return -1;
         }
-        return a[l];
+        return arr[front_idx];
     }
-    int size()
+    int Size()
     {
-        return sz;
+        return size;
     }
 };
+
 int main()
 {
     Queue q;
@@ -64,13 +66,14 @@ int main()
     q.enqueue(6);
     q.enqueue(7);
 
-    cout << "Q size: " << q.size() << endl;
+    cout << "Q size: " << q.Size() << endl;
     cout << q.front() << endl;
     q.dequeue();
     cout << q.front() << endl;
     q.dequeue();
     cout << q.front() << endl;
     q.dequeue();
-    cout << "Q size: " << q.size() << endl;
+    cout << "Q size: " << q.Size() << endl;
+
     return 0;
 }
