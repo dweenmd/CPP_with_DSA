@@ -1,25 +1,29 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+
 using namespace std;
+
+// Function to check if a string is palindrome or not
+bool isPalindrome(const string &str)
+{
+    string reversed = str;
+    reverse(reversed.begin(), reversed.end());
+    return str == reversed;
+}
+
 int main()
 {
-    queue<int> q;
-    q.push(5);
-    q.push(6);
-    q.push(7);
-    q.push(8);
-    
-    cout<<"Queue size: "<<q.size()<<endl;
-    cout<<q.front()<<endl;
-    q.pop();
-    cout<<"Queue size: "<<q.size()<<endl;
-    cout<<q.front()<<endl;
-    q.pop();
-    cout<<"Queue size: "<<q.size()<<endl;
-    cout<<q.front()<<endl;
-    q.pop();
-    cout<<"Queue size: "<<q.size()<<endl;
-    cout<<q.front()<<endl;
-    q.pop();
-    cout<<"Queue size: "<<q.size()<<endl;
+    string input;
+    cout << "Enter a string: ";
+    getline(cin, input);
 
+    if (isPalindrome(input))
+    {
+        cout << input << " is a palindrome." << endl;
+    }
+    else
+    {
+        cout << input << " is not a palindrome." << endl;
+    }
+
+    return 0;
 }
