@@ -50,8 +50,8 @@ public:
                 largest = right;
             if (largest == i)
                 break;
-            swap(arr[i],arr[largest]);
-            i=largest;
+            swap(arr[i], arr[largest]);
+            i = largest;
         }
     }
     void Delete(int i)
@@ -62,20 +62,19 @@ public:
     }
     int GetMax()
     {
-        if(arr.empty())
+        if (arr.empty())
         {
-            cout<<"Heap is empty!.\n";
+            cout << "Heap is empty!.\n";
             return -1;
         }
         return arr[0];
     }
     int ExtactMax()
     {
-        int max=arr[0];
+        int max = arr[0];
         Delete(0);
         return max;
     }
-
 };
 
 int main()
@@ -88,11 +87,11 @@ int main()
     heap.insert(1);
     heap.insert(15);
     heap.insert(55);
-    cout<<"Max element: "<<heap.GetMax()<<endl;
+    cout << "Max element: " << heap.GetMax() << endl;
     heap.PrintHeap();
     heap.ExtactMax();
-    cout<<"Extract Max element: "<<heap.GetMax()<<endl;
-    
+    cout << "Extract Max element: " << heap.GetMax() << endl;
+
     heap.PrintHeap();
     heap.Delete(0);
     heap.PrintHeap();
