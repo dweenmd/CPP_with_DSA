@@ -3,11 +3,11 @@
 using namespace std;
 
 void checkArmstrong();
+
 int main()
 {
     ios::sync_with_stdio(false); cin.tie(NULL);
-    int t; cin >> t; cin.ignore(); 
-    while (t--) checkArmstrong();
+
 }
 
 int power(int base, int exp) {
