@@ -30,7 +30,7 @@ int main()
     // use traditional loop
     for (int i = 0; i < s.size(); i++)
     {
-        cout << s[i] << " ";
+        cout << s[i] << " ";             // output: 0 1 0 0 1 0 1 0 0 1
     }
 
     return 0;

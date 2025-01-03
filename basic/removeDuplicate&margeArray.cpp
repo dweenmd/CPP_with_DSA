@@ -1,9 +1,7 @@
-
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 int main()
 {
-
     vector<int> array1 = {1, 2, 3, 4};
     vector<int> array2 = {3, 4, 5, 6};
 

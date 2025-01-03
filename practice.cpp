@@ -1,74 +1,49 @@
 #include <bits/stdc++.h>
-#define ll long long
+#define ll long long int
 using namespace std;
 
-int main()
-{
-    ll n;
+void code() {
+    int n;
     cin >> n;
-    vector<ll> v(n);
-    for (int i = 0; i < n; i++)
-    {
-        cin >> v[i];
-    }
+    vector<int> p(n + 1);
+    for (int i = 1; i <= n; i++) cin >> p[i];
 
-    vector<pair<ll, ll>> p;
-    vector<ll> second;
+    vector<bool> visited(n + 1, false);
+    vector<int> cycleLength;
 
-    for (int i = 0; i < n; i++)
-    {
-        if (v[i] % 3 == 0 && find(v.begin(), v.end(), v[i] / 3) != v.end())
-        {
-            p.push_back({v[i], v[i] / 3});
-            second.push_back(v[i] / 3);
-        }
-        if (find(v.begin(), v.end(), v[i] * 2) != v.end()) // FOUND
-        {
-            p.push_back({v[i], v[i] * 2});
-            second.push_back(v[i] * 2);
-        }
-    }
-
-    vector<ll> final;
-
-    for (auto it : v)
-    {
-        if (find(second.begin(), second.end(), it) == second.end()) // NOT FOUND
-        {
-            final.push_back(it);
-            break;
-        }
-    }
-
-    for (int i = 0; i < n - 1; i++)
-    {
-        for (auto value : p)
-        {
-            if (value.first == final.back())
-            {
-                final.push_back(value.second);
-                break;
+    // Find cycle lengths
+    for (int i = 1; i <= n; i++) {
+        if (!visited[i]) {
+            int length = 0, current = i;
+            while (!visited[current]) {
+                visited[current] = true;
+                current = p[current];
+                ++length;
             }
+            cycleLength.push_back(length);
         }
     }
 
-    for (auto it : final)
-    {
-        cout << it << " ";
+    // If there's only one cycle, no swap is needed
+    if (cycleLength.size() == 1) {
+        cout << 0 << "\n";
+        return;
     }
+
+    // Find two smallest cycle lengths
+    sort(cycleLength.begin(), cycleLength.end());
+    ll min_cost = (ll)cycleLength[0] + cycleLength[1]; // Min cost is sum of two smallest cycles
+
+    cout << min_cost << "\n";
+}
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int t;
+    cin >> t;
+    while (t--) code();
 
     return 0;
 }
-
-/*
-pseducode
-6
-4 8 6 3 12 9
-pair=4  8
-pair=6  12
-pair=3  6
-pair=12  4
-pair=9  3
-second: 8 12 6 4 3 (there is no 9 in this vector, first elements of final vector is 9)
-final: 9 3 6 12 4 8
-*/
