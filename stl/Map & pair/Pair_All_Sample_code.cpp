@@ -62,10 +62,53 @@ int main()
 
 	/// Making unique pair of integers
 
+
+	// ........................array of pairs............................
+	 int n;
+   	 cin >> n;
+    
+   	 pair<float, float> prr[n]; // Array of pairs
+    
+    	for (int i = 0; i < n; i++) {
+        	float a, b;
+        	cin >> a >> b;
+       	 	prr[i] = {a, b}; // Assigning values directly
+    	}
+
+    	// Example: Print the pairs
+    	for (int i = 0; i < n; i++) {
+        	cout << prr[i].first << " " << prr[i].second << endl;
+    	}
 	int Sz = unique ( v.begin(), v.end() ) - v.begin();
 	cout << Sz << endl;
 	for ( int i = 0; i < Sz; i++ ) cout << v[i].first << " " << v[i].second << endl;
 	cout << endl;
+
+	
+
+
+	// ......................Vector of pairs......................
+
+
+	    int n;
+	    cin >> n;
+	    
+	    vector<pair<float, float>> prr(n); // Vector of pairs
+	    
+	    for (int i = 0; i < n; i++) {
+	        float a, b;
+	        cin >> a >> b;
+	        prr[i].first = a;
+	        prr[i].second = b;
+	    }
+	    
+	    // Example: Print the pairs
+	    for (int i = 0; i < n; i++) {
+	        cout << prr[i].first << " " << prr[i].second << endl;
+	    }
+	
+//............................................................................
+
 
 	/**
 	4
